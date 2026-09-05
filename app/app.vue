@@ -21,7 +21,37 @@ onBeforeUnmount(() => {
   if (preloadTimeout) clearTimeout(preloadTimeout)
 })
 
-useHead({ script: [{ id: 'hs-script-loader', src: 'https://js-na2.hs-scripts.com/247292806.js?v=20260906-chat', type: 'text/javascript', async: true, defer: true, tagPosition: 'bodyClose' }], htmlAttrs: { lang: 'en' }, link: [{ rel: 'icon', type: 'image/png', href: '/images/waqarulzafar-logo.png' }, { rel: 'apple-touch-icon', href: '/images/waqarulzafar-logo.png' }] })
+useHead({
+  script: [
+    {
+      key: 'google-tag-loader',
+      src: 'https://www.googletagmanager.com/gtag/js?id=G-E4XF1JFR2H',
+      async: true,
+      tagPosition: 'head'
+    },
+    {
+      key: 'google-tag-config',
+      tagPosition: 'head',
+      innerHTML: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-E4XF1JFR2H');`
+    },
+    {
+      id: 'hs-script-loader',
+      src: 'https://js-na2.hs-scripts.com/247292806.js?v=20260906-chat',
+      type: 'text/javascript',
+      async: true,
+      defer: true,
+      tagPosition: 'bodyClose'
+    }
+  ],
+  htmlAttrs: { lang: 'en' },
+  link: [
+    { rel: 'icon', type: 'image/png', href: '/images/waqarulzafar-logo.png' },
+    { rel: 'apple-touch-icon', href: '/images/waqarulzafar-logo.png' }
+  ]
+})
 </script>
 <template>
   <UApp>
