@@ -21,6 +21,20 @@ export default defineNuxtConfig({
     '/': { prerender: true }
   },
 
+  // Keep Cloudflare's email rewrite outside Vue's hydration tree.
+  // These comments must be added after rendering; Vue strips template comments
+  // in production. They surround the body, outside the Nuxt root element.
+  nitro: {
+    hooks: {
+      'prerender:generate'(route) {
+        if (typeof route.contents !== 'string' || !route.fileName?.endsWith('.html')) return
+        route.contents = route.contents
+          .replace(/<body([^>]*)>/i, '<body$1><!--email_off-->')
+          .replace(/<\/body>/i, '<!--/email_off--></body>')
+      }
+    }
+  },
+
   compatibilityDate: '2026-06-30',
 
   eslint: {
