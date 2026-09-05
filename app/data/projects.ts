@@ -31,5 +31,15 @@ export const projects: PortfolioProject[] = [
     imageHeight: 941,
     imageAlt: 'Asan POS showing the sales checkout, product catalog, receipt printer, and business management features',
     forSale: true
+  },
+  {
+    name: 'Restaurant POS System',
+    category: 'Restaurant management software',
+    description: 'A restaurant point-of-sale system for dine-in, takeaway, and delivery orders. Manage orders, accept cash, card, and wallet payments, and track sales with live reports.',
+    technologies: ['Order management', 'Multiple payments', 'Live reports', 'Touch-friendly'],
+    image: '/images/projects/restaurant-pos.png',
+    imageWidth: 1448,
+    imageHeight: 1086,
+    imageAlt: 'Restaurant POS System showing a food menu, running orders, table selection, payments, and sales reporting features'
   }
 ]
