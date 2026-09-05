@@ -60,7 +60,7 @@ export function usePortfolioSeo() {
       ...[
         ['web-development', 'Web design and development', 'Responsive websites and custom web applications using Laravel, Nuxt.js, Next.js, React and Vue.js. Starting from USD 100.'],
         ['mobile-development', 'Mobile app development', 'Android and iOS application development using Flutter and native Android Kotlin. Starting from USD 150.'],
-        ['pos-system', 'Ready-made POS system', 'Ready-made POS software for restaurants, hotels, gyms and other businesses, offered at USD 300. Suitability and any customization costs are confirmed before purchase.'],
+        ['pos-system', 'Asan POS', 'Ready-made POS software for retail, grocery, restaurants and service businesses, offered at USD 300. Suitability and any customization costs are confirmed before purchase.'],
         ['ai-development', 'AI deployment and training', 'AI model training, deployment and integration with web and mobile applications.']
       ].map(([id, name, serviceDescription]) => ({
         '@type': 'Service', '@id': `${url}#${id}`, name,
