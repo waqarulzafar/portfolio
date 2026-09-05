@@ -26,3 +26,11 @@ Run `pnpm generate`, then upload the entire contents of `.output/public` to the 
 Cloudflare Email Address Obfuscation rewrites email links and inserts elements into the generated HTML, which conflicts with Vue hydration. The prerender hook wraps the body in Cloudflare's `email_off` comments, outside the Nuxt root, to preserve the original markup. Alternatively, disable Email Address Obfuscation for this hostname in Cloudflare Security Settings.
 
 After deploying, purge cached HTML and any cached missing-image responses in Cloudflare. Verify `/images/projects/restaurant-pos.png` returns HTTP 200 and reload the page to check the browser console. Local generation cannot verify the origin upload or Cloudflare cache state.
+
+## Google Analytics consent
+
+The global custom banner uses basic Google Consent Mode v2. All four consent values start denied. Google Analytics loads only after acceptance; advertising consent stays denied. The device stores the choice for 180 days. Analytics settings at the bottom of the page lets visitors withdraw consent, which disables analytics, clears GA cookies, and reloads to remove the running tag. If storage is unavailable, the choice lasts only for the visit.
+
+This banner controls Google Analytics only. HubSpot retains its own cookie and chat consent configuration. After deployment, select “I use a custom consent banner” in Google Analytics and use Tag Assistant to verify default and updated consent signals. No Google Analytics account settings are changed by this code.
+
+Run `node scripts/test-google-consent.mjs` to check consent ordering, loader gating, persistence, expiry, withdrawal, and blocked storage behavior.

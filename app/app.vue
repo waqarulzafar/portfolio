@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import googleConsent from '~/utils/google-consent.js?raw'
 const isPreloading = ref(true)
 let preloadTimeout: ReturnType<typeof setTimeout> | undefined
 
@@ -24,18 +25,9 @@ onBeforeUnmount(() => {
 useHead({
   script: [
     {
-      key: 'google-tag-loader',
-      src: 'https://www.googletagmanager.com/gtag/js?id=G-E4XF1JFR2H',
-      async: true,
-      tagPosition: 'head'
-    },
-    {
-      key: 'google-tag-config',
+      key: 'google-consent-bootstrap',
       tagPosition: 'head',
-      innerHTML: `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-E4XF1JFR2H');`
+      innerHTML: googleConsent
     },
     {
       id: 'hs-script-loader',
@@ -65,5 +57,6 @@ gtag('config', 'G-E4XF1JFR2H');`
       </div>
     </Transition>
     <NuxtPage />
+    <AnalyticsConsent />
   </UApp>
 </template>
