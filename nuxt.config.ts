@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   ],
 
   devtools: { enabled: false },
-  colorMode: { preference: 'light' },
+  colorMode: { preference: 'dark' },
   icon: {
     provider: 'none',
     clientBundle: {
